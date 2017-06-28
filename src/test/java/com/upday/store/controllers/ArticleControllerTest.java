@@ -44,10 +44,10 @@ public class ArticleControllerTest {
     }
 
     @Test
-    public void testGetArticlesByDateRange() throws Exception {
+    public void testGetArticlesPublishedWithinDateRange() throws Exception {
         List<Article> articles = new ArrayList<>();
         articles.add(TestDataBuilder.getTestArticleTwo());
-        when(articleService.findArticlesByDateRange("2017-02-28", "2017-06-13")).thenReturn(articles);
+        when(articleService.findArticlesPublishedWithinDateRange("2017-02-28", "2017-06-13")).thenReturn(articles);
         mvc.perform(get("/api/articles/date")
                 .param("dateFrom", "2017-02-28")
                 .param("dateTo", "2017-06-13"))

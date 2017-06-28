@@ -16,5 +16,5 @@ public interface ArticleService {
 
     void deleteById(String id);
 
-    List<Article> findArticlesByDateRange(String dateFrom, String dateTo);
+    List<Article> findArticlesPublishedWithinDateRange(String dateFrom, String dateTo);
 }

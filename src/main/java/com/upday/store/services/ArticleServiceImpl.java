@@ -64,7 +64,7 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public List<Article> findArticlesByDateRange(String dateFrom, String dateTo) {
+    public List<Article> findArticlesPublishedWithinDateRange(String dateFrom, String dateTo) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         Date dateFromDte = java.sql.Date.valueOf(LocalDate.parse(dateFrom, formatter));
         Date dateToDte = java.sql.Date.valueOf(LocalDate.parse(dateTo, formatter));

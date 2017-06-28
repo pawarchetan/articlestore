@@ -33,8 +33,8 @@ public class ArticleController {
     }
 
     @GetMapping(value = "/date", produces = "application/json")
-    public ResponseEntity<List<Article>> getArticlesByDateRange(@RequestParam String dateFrom, @RequestParam String dateTo) {
-        return new ResponseEntity<>(articleService.findArticlesByDateRange(dateFrom, dateTo), HttpStatus.OK);
+    public ResponseEntity<List<Article>> getArticlesPublishedWithinDateRange(@RequestParam String dateFrom, @RequestParam String dateTo) {
+        return new ResponseEntity<>(articleService.findArticlesPublishedWithinDateRange(dateFrom, dateTo), HttpStatus.OK);
     }
 
     @GetMapping(produces = "application/json")
