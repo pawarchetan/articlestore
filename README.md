@@ -23,3 +23,6 @@ Implementation Details :
     - article_keyword (Many to Many relationship)
   - REST Endpoints
     - Article :
+      - Get All Articles :
+      http://localhost:8080/api/articles
+      
