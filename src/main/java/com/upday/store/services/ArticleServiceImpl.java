@@ -6,6 +6,7 @@ import com.upday.store.domains.dto.ArticleDTO;
 import com.upday.store.exceptions.ArticleNotFoundException;
 import com.upday.store.repository.ArticleRepository;
 import com.upday.store.util.ArticleMapper;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,7 @@ import java.util.Date;
 import java.util.List;
 
 @Service
+@Log4j2
 public class ArticleServiceImpl implements ArticleService {
     private final ArticleRepository articleRepository;
     private final KeywordService keywordService;
@@ -27,6 +29,7 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public Iterable<Article> findAll() {
+        log.info("Finding All Articles");
         return articleRepository.findAll();
     }
 
@@ -34,6 +37,7 @@ public class ArticleServiceImpl implements ArticleService {
     public Article findById(String id) {
         Article article = articleRepository.findOne(id);
         if (article == null) {
+            log.error("Article with Id: " + id + " not Found.");
             throw createArticleNotFoundException(new Exception("Article Not Found"));
         }
         return articleRepository.findOne(id);
