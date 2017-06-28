@@ -8,8 +8,8 @@ import com.upday.store.domains.dto.ArticleDTO;
 import java.util.Set;
 
 public final class ArticleMapper {
-    public static Article mapArticleDTOToArticleEntity(ArticleDTO articleDTO, Article article, Iterable<Keyword> keywordIterable){
-        if(article == null) {
+    public static Article mapArticleDTOToArticleEntity(ArticleDTO articleDTO, Article article, Iterable<Keyword> keywordIterable) {
+        if (article == null) {
             article = new Article();
         }
         article.setHeader(articleDTO.getHeader());

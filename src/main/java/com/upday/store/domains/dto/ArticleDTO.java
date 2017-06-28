@@ -4,13 +4,12 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.upday.store.domains.Keyword;
 
 import java.util.Date;
 import java.util.Set;
 
 @JsonSerialize(as = ArticleDTO.class)
-@JsonIgnoreProperties(ignoreUnknown=true)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ArticleDTO {
     @JsonProperty("id")
     private String id;
@@ -24,7 +23,7 @@ public class ArticleDTO {
     @JsonProperty("text")
     private String text;
 
-    @JsonFormat(pattern="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     @JsonProperty("publishDate")
     private Date publishDate;
 

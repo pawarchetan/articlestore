@@ -1,6 +1,5 @@
 package com.upday.store.domains;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -8,8 +7,6 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
-
-import static javax.persistence.FetchType.LAZY;
 
 @Entity
 @Table(name = "article_tbl")
@@ -41,7 +38,7 @@ public class Article implements Serializable {
     private Author author;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(name = "article_keyword", joinColumns = { @JoinColumn(name = "article_id") }, inverseJoinColumns = { @JoinColumn(name = "keyword_id") })
+    @JoinTable(name = "article_keyword", joinColumns = {@JoinColumn(name = "article_id")}, inverseJoinColumns = {@JoinColumn(name = "keyword_id")})
     private Set<Keyword> keywords = new HashSet<>();
 
     public String getId() {

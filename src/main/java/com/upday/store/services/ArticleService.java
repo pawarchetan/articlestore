@@ -7,9 +7,14 @@ import java.util.List;
 
 public interface ArticleService {
     Iterable<Article> findAll();
+
     Article findById(String id);
+
     Article create(ArticleDTO articleDTO);
+
     Article edit(ArticleDTO articleDTO);
+
     void deleteById(String id);
+
     List<Article> findArticlesByDateRange(String dateFrom, String dateTo);
 }

@@ -23,12 +23,12 @@ public class AuthorController {
     }
 
     @GetMapping(value = "/{id}", produces = "application/json")
-    public ResponseEntity<Set<Article>> findAllArticlesWrittenByAuthor(@PathVariable("id") String id){
+    public ResponseEntity<Set<Article>> findAllArticlesWrittenByAuthor(@PathVariable("id") String id) {
         return new ResponseEntity<>(authorService.findAllArticlesWrittenByAuthor(id), HttpStatus.OK);
     }
 
     @GetMapping(value = "/name/{name}", produces = "application/json")
-    public ResponseEntity<Set<Article>> findAllArticlesWrittenByAuthorName(@PathVariable("name") String name){
+    public ResponseEntity<Set<Article>> findAllArticlesWrittenByAuthorName(@PathVariable("name") String name) {
         return new ResponseEntity<>(authorService.findAllArticlesWrittenByAuthorName(name), HttpStatus.OK);
     }
 }

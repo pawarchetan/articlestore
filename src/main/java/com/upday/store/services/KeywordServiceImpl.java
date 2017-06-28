@@ -22,15 +22,15 @@ public class KeywordServiceImpl implements KeywordService {
     }
 
     @Override
-    public Set<Article> findAllArticlesForKeyword(String word){
+    public Set<Article> findAllArticlesForKeyword(String word) {
         Keyword keyword = keywordRepository.findByWord(word);
-        if(keyword == null) {
+        if (keyword == null) {
             throw createKeywordNotFoundException(new Exception("Keyword Not Found."));
         }
         return keyword.getArticles();
     }
 
-    private KeywordNotFoundException createKeywordNotFoundException(Exception e){
+    private KeywordNotFoundException createKeywordNotFoundException(Exception e) {
         String errorMessage = e.getLocalizedMessage();
         return new KeywordNotFoundException(errorMessage);
     }

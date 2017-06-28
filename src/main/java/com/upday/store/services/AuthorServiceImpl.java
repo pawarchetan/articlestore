@@ -22,7 +22,7 @@ public class AuthorServiceImpl implements AuthorService {
     @Override
     public Set<Article> findAllArticlesWrittenByAuthor(String id) {
         Author author = authorRepository.findOne(id);
-        if(author == null) {
+        if (author == null) {
             throw createAuthorNotFoundException(new Exception("Author Not Found"));
         }
         return author.getArticles();
@@ -31,14 +31,14 @@ public class AuthorServiceImpl implements AuthorService {
     @Override
     public Set<Article> findAllArticlesWrittenByAuthorName(String name) {
         Author author = authorRepository.findByName(name);
-        if(author == null) {
+        if (author == null) {
             throw createAuthorNotFoundException(new Exception("Author Not Found"));
         }
         return author.getArticles();
     }
 
 
-    private AuthorNotFoundException createAuthorNotFoundException(Exception e){
+    private AuthorNotFoundException createAuthorNotFoundException(Exception e) {
         String errorMessage = e.getLocalizedMessage();
         return new AuthorNotFoundException(errorMessage);
     }

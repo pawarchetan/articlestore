@@ -23,32 +23,32 @@ public class ArticleController {
 
     @PostMapping(consumes = "application/json", produces = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<Article> createArticle(@RequestBody @Valid ArticleDTO articleDTO){
+    public ResponseEntity<Article> createArticle(@RequestBody @Valid ArticleDTO articleDTO) {
         return new ResponseEntity<>(articleService.create(articleDTO), HttpStatus.OK);
     }
 
     @GetMapping(value = "/{id}", produces = "application/json")
-    public ResponseEntity<Article> getArticleById(@PathVariable("id") String id){
+    public ResponseEntity<Article> getArticleById(@PathVariable("id") String id) {
         return new ResponseEntity<>(articleService.findById(id), HttpStatus.OK);
     }
 
     @GetMapping(value = "/date", produces = "application/json")
-    public ResponseEntity<List<Article>> getArticlesByDateRange(@RequestParam String dateFrom, @RequestParam String dateTo){
+    public ResponseEntity<List<Article>> getArticlesByDateRange(@RequestParam String dateFrom, @RequestParam String dateTo) {
         return new ResponseEntity<>(articleService.findArticlesByDateRange(dateFrom, dateTo), HttpStatus.OK);
     }
 
     @GetMapping(produces = "application/json")
-    public ResponseEntity<Iterable<Article>> getAllArticles(){
+    public ResponseEntity<Iterable<Article>> getAllArticles() {
         return new ResponseEntity<>(articleService.findAll(), HttpStatus.OK);
     }
 
     @PutMapping(consumes = "application/json", produces = "application/json")
-    public ResponseEntity<Article> editArticle(@RequestBody @Valid ArticleDTO articleDTO){
+    public ResponseEntity<Article> editArticle(@RequestBody @Valid ArticleDTO articleDTO) {
         return new ResponseEntity<>(articleService.edit(articleDTO), HttpStatus.OK);
     }
 
     @DeleteMapping(value = "/{id}")
-    public void deleteArticle(@PathVariable("id") String id){
+    public void deleteArticle(@PathVariable("id") String id) {
         articleService.deleteById(id);
     }
 }

@@ -23,7 +23,7 @@ public class KeywordController {
     }
 
     @GetMapping(value = "/{word}", produces = "application/json")
-    public ResponseEntity<Set<Article>> findAllArticlesForKeyword(@PathVariable("word") String word){
+    public ResponseEntity<Set<Article>> findAllArticlesForKeyword(@PathVariable("word") String word) {
         return new ResponseEntity<>(keywordService.findAllArticlesForKeyword(word), HttpStatus.OK);
     }
 }

@@ -1,7 +1,6 @@
 package com.upday.store.util;
 
 
-import com.upday.store.domains.Article;
 import com.upday.store.domains.Keyword;
 import com.upday.store.domains.dto.ArticleDTO;
 import com.upday.store.domains.dto.KeywordDTO;
@@ -13,7 +12,7 @@ import java.util.Set;
 
 public final class KeywordMapper {
     //logic to avoid insertion of duplicate keywords
-    static Set<Keyword> mapKeywordDTOsToPersistableEntities(ArticleDTO articleDTO, Iterable<Keyword> iterable){
+    static Set<Keyword> mapKeywordDTOsToPersistableEntities(ArticleDTO articleDTO, Iterable<Keyword> iterable) {
         Set<Keyword> keywordsToPersist = new HashSet<>();
         Map<String, Keyword> keywordMap = new HashMap<>();
 
@@ -21,7 +20,7 @@ public final class KeywordMapper {
         iterable.forEach(i -> keywordMap.put(i.getWord(), i));
 
         keywordDTOS.forEach(j -> {
-            if(keywordMap.containsKey(j.getWord())){
+            if (keywordMap.containsKey(j.getWord())) {
                 keywordsToPersist.add(keywordMap.get(j.getWord()));
             } else {
                 Keyword mappedKeyword = KeywordMapper.mapKeywordDTOToKeywordEntity(j);
@@ -37,4 +36,4 @@ public final class KeywordMapper {
         keyword.setWord(keywordDTO.getWord());
         return keyword;
     }
- }
+}
