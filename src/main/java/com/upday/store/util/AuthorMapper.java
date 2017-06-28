@@ -1,0 +1,12 @@
+package com.upday.store.util;
+
+import com.upday.store.domains.Author;
+import com.upday.store.domains.dto.AuthorDTO;
+
+public final class AuthorMapper {
+    public static Author mapAuthorDTOToAuthorEntity(AuthorDTO authorDTO){
+        Author author = new Author();
+        author.setName(authorDTO.getName());
+        return author;
+    }
+}
