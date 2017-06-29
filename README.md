@@ -46,7 +46,7 @@ Implementation Details :
         - http://localhost:8080/api/authors/{id}
         - Method : GET
       - Get All Articles written By an Author (name)
-        - http://localhost:8080/api/authors/{name}
+        - http://localhost:8080/api/authors/name/{name}
         - Method : GET
     - Keyword :
       - Get All Articles for Keyword
